@@ -19,7 +19,11 @@ export default function App() {
     setDecimal((prev) => prev - 1);
   }
 
-  const binary = Number(decimal).toString(2);
+  function handleReset() {
+    setDecimal(0);
+  }
+
+  let binary = Number(decimal).toString(2);
   const octal = Number(decimal).toString(8);
   const hexadecimal = Number(decimal).toString(16).toUpperCase();
 
@@ -41,16 +45,20 @@ export default function App() {
         <Button variant="contained" onClick={handleDecrement}>
           Decrement
         </Button>
-        <Button variant="outlined" color="error" onClick={() => setDecimal(0)}>
+        <Button variant="outlined" color="error" onClick={handleReset}>
           Reset
         </Button>
       </div>
-      <h4>Binary</h4>
-      <Typography variant="h3">{binary}</Typography>
-      <h4>Octal</h4>
-      <Typography variant="h3">{octal}</Typography>
-      <h4>Hexadecimal</h4>
-      <Typography variant="h3">{hexadecimal}</Typography>
+      <div>
+        <h4>{binary === "NaN" ? "Click Reset to Continue" : "Binary"}</h4>
+        <Typography variant="h3">{binary === "NaN" ? 0 : binary}</Typography>
+        <h4>Octal</h4>
+        <Typography variant="h3">{octal === "NaN" ? 0 : octal}</Typography>
+        <h4>Hexadecimal</h4>
+        <Typography variant="h3">
+          {hexadecimal === "NAN" ? 0 : hexadecimal}
+        </Typography>
+      </div>
     </div>
   );
 }
