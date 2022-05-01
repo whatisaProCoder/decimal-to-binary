@@ -5,11 +5,7 @@ body {
 .App {
   font-family: "Inter";
   text-align: center;
-}
-
-.App > TextField {
-  width: 100vh;
-}
+  margin: 10px; }
 
 .button-group {
   display: flex;
